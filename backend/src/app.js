@@ -25,6 +25,7 @@ app.use('/api', async (req, _res, next) => {
   }
 });
 
+// rotas
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
