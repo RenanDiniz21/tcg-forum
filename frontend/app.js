@@ -1,4 +1,5 @@
-const API_BASE = localStorage.getItem('apiBase') || 'http://localhost:3000/api';
+const API_BASE = localStorage.getItem('apiBase')
+  || (window.location.protocol === 'file:' ? 'http://localhost:3000/api' : '/api');
 
 const state = {
   user: JSON.parse(localStorage.getItem('user') || 'null'),

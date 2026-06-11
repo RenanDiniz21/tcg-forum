@@ -26,3 +26,22 @@ npm run dev
 5. Abra `frontend/index.html` no navegador.
 
 Por padrao a API roda em `http://localhost:3000/api`.
+
+## Deploy na Vercel
+
+O projeto inclui `vercel.json` e `index.js` na raiz para a Vercel importar o app Express.
+
+1. Acesse a Vercel e importe o repositorio.
+2. Adicione as variaveis de ambiente:
+
+```text
+MONGODB_URI=sua_url_do_mongodb_atlas
+JWT_SECRET=seu_segredo_jwt
+JWT_EXPIRES_IN=7d
+CORS_ORIGIN=*
+```
+
+3. Confirme que o MongoDB Atlas permite conexoes do deploy.
+4. Clique em Deploy.
+
+Na Vercel, o app e exportado por `index.js` e a plataforma gerencia o servidor automaticamente.
