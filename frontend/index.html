@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCG Forum</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#feed-section">Pular para o feed</a>
+    <header class="topbar">
+      <a class="brand" href="#main-content" aria-label="Ir para o inicio do TCG Forum">
+        <span class="brand-mark" aria-hidden="true">TCG</span>
+        <span>Forum Pokemon TCG</span>
+      </a>
+      <nav class="session" aria-label="Sessao do usuario">
+        <span id="session-user">Visitante</span>
+        <button id="logout-btn" class="ghost hidden" type="button">Sair</button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="layout">
+      <section class="panel intro" aria-labelledby="intro-title">
+        <div>
+          <h1 id="intro-title">Decklists, trocas e duvidas em um forum simples.</h1>
+          <p>Entre, publique uma discussao, comente nas postagens da comunidade e marque as melhores ideias com reacoes.</p>
+        </div>
+        <img src="assets/card-stack.svg" alt="Cartas colecionaveis sobre uma mesa" />
+      </section>
+
+      <aside class="panel auth-panel" aria-labelledby="auth-title">
+        <h2 id="auth-title" class="sr-only">Acesso da conta</h2>
+        <div class="tabs" role="tablist" aria-label="Autenticacao">
+          <button class="tab active" id="login-tab" type="button" role="tab" aria-selected="true" aria-controls="auth-panel-content">Login</button>
+          <button class="tab" id="register-tab" type="button" role="tab" aria-selected="false" aria-controls="auth-panel-content" tabindex="-1">Registro</button>
+        </div>
+
+        <section id="auth-panel-content" role="tabpanel" aria-labelledby="login-tab">
+          <form id="auth-form" class="form">
+            <fieldset>
+              <legend id="auth-legend">Login</legend>
+              <label id="name-field" class="hidden">
+                Nome
+                <input id="nome" name="nome" autocomplete="name" />
+              </label>
+              <label>
+                Email
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </label>
+              <label>
+                Senha
+                <input id="senha" name="senha" type="password" autocomplete="current-password" required minlength="6" />
+              </label>
+              <button id="auth-submit" type="submit">Entrar</button>
+            </fieldset>
+          </form>
+        </section>
+      </aside>
+
+      <section class="panel composer" aria-labelledby="composer-title">
+        <div class="section-title">
+          <h2 id="composer-title">Nova postagem</h2>
+          <p id="composer-help">Compartilhe uma lista, uma duvida ou uma troca.</p>
+        </div>
+        <form id="post-form" class="form" aria-describedby="composer-help">
+          <fieldset>
+            <legend class="sr-only">Dados da nova postagem</legend>
+            <label>
+              Titulo
+              <input id="post-title" name="titulo" required minlength="3" maxlength="120" placeholder="Ex: Ajuda com deck eletrico" />
+            </label>
+            <label>
+              Categoria
+              <select id="post-tag" name="tag">
+                <option value="duvida">Duvida</option>
+                <option value="deck">Deck</option>
+                <option value="troca">Troca</option>
+                <option value="torneio">Torneio</option>
+                <option value="colecao">Colecao</option>
+              </select>
+            </label>
+            <label>
+              Conteudo
+              <textarea id="post-content" name="conteudo" required minlength="5" maxlength="2000" rows="5" placeholder="Escreva sua postagem..."></textarea>
+            </label>
+            <button id="post-submit" type="submit">Publicar</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section id="feed-section" class="feed-area" aria-labelledby="feed-title">
+        <div class="section-title feed-header">
+          <div>
+            <h2 id="feed-title">Feed da comunidade</h2>
+            <p id="feed-count" aria-live="polite">Carregando postagens...</p>
+          </div>
+          <button id="refresh-btn" class="ghost" type="button">Atualizar</button>
+        </div>
+        <div id="messages" role="status" aria-live="polite"></div>
+        <div id="feed" class="feed" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

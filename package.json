@@ -1,0 +1,16 @@
+{
+  "name": "tcg-forum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo simples para um forum de Pokemon TCG.",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm --workspace backend run dev",
+    "start": "npm --workspace backend start",
+    "test": "npm --workspace backend test",
+    "check": "npm --workspace backend run check"
+  }
+}
